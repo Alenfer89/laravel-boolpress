@@ -35,7 +35,7 @@
                     @if ($post->id !== 0)
                         <a href="{{ route('admin.posts.show', $post->id -1) }}" class="card-link">Card link</a>
                     @endif
-                    
+                    {{-- qua serve il count di pos::all()?? --}}
                     <a href="{{ route('admin.posts.show', $post->id +1) }}" class="card-link">Another link</a>
                     
                     
