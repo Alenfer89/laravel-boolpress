@@ -32,8 +32,13 @@
                     </li>
                 </ul>
                 <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
+                    @if ($post->id !== 0)
+                        <a href="{{ route('admin.posts.show', $post->id -1) }}" class="card-link">Card link</a>
+                    @endif
+                    
+                    <a href="{{ route('admin.posts.show', $post->id +1) }}" class="card-link">Another link</a>
+                    
+                    
                 </div>
             </div>
         </div>
