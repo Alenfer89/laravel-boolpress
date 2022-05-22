@@ -9,6 +9,9 @@
                 LOGGED HOMEPAGE
             </h1>
         </div>
+        <div class="col-6 mx-auto">
+            <a href="{{ route('admin.posts.index') }}"> i tuoi post </a>
+        </div>
     </div>
 </div>
 @endsection
