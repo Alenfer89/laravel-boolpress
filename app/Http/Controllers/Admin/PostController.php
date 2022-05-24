@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
@@ -39,7 +40,21 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $data['user_id'] = Auth::user()->id;
+        $randomInt = rand(1, 100);
+        $data['slug'] = Str::slug($data['title'], "-") ."-". ($randomInt);
+
+        $newPost = new Post();
+        $newPost->user_id = $data['user_id'];
+        $newPost->title = $data['title'];
+        $newPost->content = $data['content'];
+        $newPost->image_url = $data['image_url'];
+        $newPost->slug = $data['slug'];
+        $newPost->save();
+
+        return redirect()->route('admin.posts.index')->with('message', "$newPost->title post correctly");
+
     }
 
     /**

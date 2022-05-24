@@ -4,11 +4,18 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-12 text-center">
+        <div class="col-12 text-center mb-3">
             <h1>
                 {{-- {{ucfirst(Auth::user()['name'])}} Post --}}
                 {{ $post->user->userInfo->first_name }} Post
             </h1>
+            <div>
+                <a href="{{ route('admin.posts.index') }}">
+                    <button class="btn btn-sm btn-primary">
+                        back
+                    </button>
+                </a>
+            </div>
         </div>
         <div class="col-6 mx-auto">
             <div class="card">

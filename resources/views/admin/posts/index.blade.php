@@ -4,10 +4,22 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-12 text-center">
+        <div class="col-12 text-center mb-3">
             <h1>
                 {{ucfirst(Auth::user()['name'])}} Posts
             </h1>
+            <div>
+                <a href="{{ route('admin.posts.create') }}">
+                    <button class="btn btn-sm btn-primary">
+                        New Post
+                    </button>
+                </a>
+            </div>
+            @if (session('message'))
+                <div class="alert alert-success">
+                    {{ session('message') }}
+                </div>
+            @endif
         </div>
         <div class="col-12">
             <table class="table table-primary">
