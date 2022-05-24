@@ -29,13 +29,18 @@
                                 </a>
                             </td>
                             <td>
-                                <span class="badge" style="background-color: {{ $post->categories[0]->color }}">
+                                @foreach ($post->categories as $singleCategory)
+                                <span class="badge" style="background-color: {{ $singleCategory->color }}">
+                                    {{ $singleCategory->name }}
+                                </span>
+                                @endforeach
+                                {{-- <span class="badge" style="background-color: {{ $post->categories[0]->color }}">
                                     {{ $post->categories[0]->name }}
                                 </span>
                                 -
                                 <span class="badge" style="background-color: {{ $post->categories[1]->color }}">
                                     {{ $post->categories[1]->name }}
-                                </span>
+                                </span> --}}
                             </td>
                             <td>
                                 {{ $post->author_name }}
