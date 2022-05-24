@@ -24,7 +24,7 @@
                     @foreach ($posts as $post)
                         <tr>
                             <td>
-                                <a href="{{ route('admin.posts.show', $post) }}">
+                                <a href="{{ route('admin.posts.show', [$post , count($posts)]) }}">
                                     {{ $post->title }}
                                 </a>
                             </td>

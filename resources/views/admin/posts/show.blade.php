@@ -6,7 +6,8 @@
     <div class="row">
         <div class="col-12 text-center">
             <h1>
-                <h1>{{ucfirst(Auth::user()['name'])}} Post</h1>
+                {{-- {{ucfirst(Auth::user()['name'])}} Post --}}
+                {{ $post->user->userInfo->first_name }} Post
             </h1>
         </div>
         <div class="col-6 mx-auto">
@@ -33,10 +34,12 @@
                 </ul>
                 <div class="card-body">
                     @if ($post->id !== 0)
-                        <a href="{{ route('admin.posts.show', $post->id -1) }}" class="card-link">Card link</a>
+                        <a href="{{ route('admin.posts.show', $post->id -1) }}" class="card-link">Previous Post</a>
                     @endif
                     {{-- qua serve il count di pos::all()?? --}}
-                    <a href="{{ route('admin.posts.show', $post->id +1) }}" class="card-link">Another link</a>
+                    @if ($post->id + 1 <= $totalPosts)
+                        <a href="{{ route('admin.posts.show', $post->id +1) }}" class="card-link">Next Post</a>
+                    @endif
                     
                     
                 </div>
