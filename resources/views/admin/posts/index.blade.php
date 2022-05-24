@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-12 text-center">
             <h1>
-                <h1>{{ucfirst(Auth::user()['name'])}} Posts</h1>
+                {{ucfirst(Auth::user()['name'])}} Posts
             </h1>
         </div>
         <div class="col-12">
@@ -30,7 +30,7 @@
                             </td>
                             <td>
                                 @foreach ($post->categories as $singleCategory)
-                                <span class="badge" style="background-color: {{ $singleCategory->color }}">
+                                <span class="badge rounded-pill" style="background-color: {{ $singleCategory->color }}">
                                     {{ $singleCategory->name }}
                                 </span>
                                 @endforeach
