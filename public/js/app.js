@@ -53783,8 +53783,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! F:\BOOLEAN\ESERCIZI\62 laravel-auth\laravel-auth\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! F:\BOOLEAN\ESERCIZI\62 laravel-auth\laravel-auth\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! F:\BOOLEAN\ESERCIZI\63 laravel-many-to-many\laravel-many-to-many\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! F:\BOOLEAN\ESERCIZI\63 laravel-many-to-many\laravel-many-to-many\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
