@@ -83,6 +83,9 @@
                 <div class="title m-b-md">
                     {{ config('app.name', 'Simil WordPress') }}
                 </div>
+                <p>
+                    Cover Page
+                </p>
 
                 <div class="links">
                     @if (Route::has('login'))

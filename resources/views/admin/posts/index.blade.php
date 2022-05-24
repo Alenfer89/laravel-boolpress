@@ -29,6 +29,7 @@
                                 </a>
                             </td>
                             <td>
+                                
                                 @foreach ($post->categories as $singleCategory)
                                 <span class="badge rounded-pill" style="background-color: {{ $singleCategory->color }}">
                                     {{ $singleCategory->name }}
@@ -43,7 +44,7 @@
                                 </span> --}}
                             </td>
                             <td>
-                                {{ $post->author_name }}
+                                {{ $post->user->userInfo->first_name }} - {{ $post->user->userInfo->last_name }}
                             </td>
                             <td>
                                 {{ $post->created_at }}
