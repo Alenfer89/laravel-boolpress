@@ -29,7 +29,13 @@
                                 </a>
                             </td>
                             <td>
-                                categoria
+                                <span class="badge" style="background-color: {{ $post->categories[0]->color }}">
+                                    {{ $post->categories[0]->name }}
+                                </span>
+                                -
+                                <span class="badge" style="background-color: {{ $post->categories[1]->color }}">
+                                    {{ $post->categories[1]->name }}
+                                </span>
                             </td>
                             <td>
                                 {{ $post->author_name }}
