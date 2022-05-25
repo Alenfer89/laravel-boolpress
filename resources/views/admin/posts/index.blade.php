@@ -70,8 +70,8 @@
                             <td>
                                 {{ $post->created_at }}
                             </td>
-                            <td>
-                                <a href="{{ route('admin.posts.edit', $post) }}">
+                            <td class="d-flex">
+                                <a href="{{ route('admin.posts.edit', $post) }}" class="me-3">
                                     <button class="btn btn-sm btn-warning"> Edit </button>
                                 </a>
                                 <form action="{{ route('admin.posts.destroy', $post) }}" class="are-you-sure" method="POST">
@@ -98,8 +98,8 @@
         cancellations.forEach(cancellation => {
             cancellation.addEventListener( "submit", function(event){
                 event.preventDefault();
-                let confimation = window.confirm('Are you sure you want to remove this post?');
-                if(confimation){
+                let confirmation = window.confirm('Are you sure you want to remove this post?');
+                if(confirmation){
                     this.submit();
                 }
             })
