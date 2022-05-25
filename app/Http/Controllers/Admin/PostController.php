@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -29,7 +30,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        $categories = Category::all();
+        return view('admin.posts.create', compact('categories'));
     }
 
     /**
@@ -40,6 +42,18 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate(
+            [
+                'title' => 'required',
+                'content' => 'required|min:20',
+                'category' => 'required'
+            ],
+            [
+                'required' => ':attribute is required',
+                'min' => ':attribute should have at least :min characters'
+            ]
+        );
+
         $data = $request->all();
         $data['user_id'] = Auth::user()->id;
         $randomInt = rand(1, 100);
@@ -52,6 +66,11 @@ class PostController extends Controller
         $newPost->image_url = $data['image_url'];
         $newPost->slug = $data['slug'];
         $newPost->save();
+        if (count($data['category']) == 0) {
+            $newPost->categories()->attach(0);
+        } else{
+            $newPost->categories()->attach($data['category']);
+        }
 
         return redirect()->route('admin.posts.index')->with('message', "$newPost->title post correctly");
 
@@ -60,7 +79,7 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Post(Model) $post
      * @return \Illuminate\Http\Response
      */
     public function show(Post $post)
@@ -72,19 +91,20 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  Post(Model) $post
      * @return \Illuminate\Http\Response
      */
     public function edit(Post $post)
     {
-        return view('admin.posts.edit', ['post' => $post]);
+        $categories = Category::all();
+        return view('admin.posts.edit', ['post' => $post, 'categories' => $categories]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Post(Model) $post
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Post $post)
@@ -100,6 +120,7 @@ class PostController extends Controller
         $post->image_url = $data['image_url'];
         $post->slug = $data['slug'];
         $post->save();
+        $post->categories()->sync($data['category']);
 
         return redirect()->route('admin.posts.show', ['post' => $post]);
     }
@@ -107,7 +128,7 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Post(Model) $post
      * @return \Illuminate\Http\Response
      */
     public function destroy(Post $post)

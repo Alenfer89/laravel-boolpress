@@ -9,12 +9,7 @@
                 {{ucfirst(Auth::user()['name'])}} Posts
             </h1>
             <div>
-                {{-- <a href="{{ route('admin.posts.create') }}">
-                    <button class="btn btn-sm btn-primary">
-                        New Post
-                    </button>
-                </a> --}}
-                <a href="#" id='test'>
+                <a href="{{ route('admin.posts.create') }}">
                     <button class="btn btn-sm btn-primary">
                         New Post
                     </button>
@@ -103,11 +98,6 @@
                     this.submit();
                 }
             })
-        });
-
-        const test = document.getElementById('test');
-        test.addEventListener('click', function(){
-            promt('hello');
         });
     </script>
 @endsection
