@@ -62,7 +62,7 @@
                                 {{ $post->created_at }}
                             </td>
                             <td>
-                                <a href="">
+                                <a href="{{ route('admin.posts.edit', $post) }}">
                                     <button class="btn btn-sm btn-warning"> Edit </button>
                                 </a>
                                 <a href="">

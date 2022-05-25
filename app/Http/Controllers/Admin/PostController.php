@@ -75,9 +75,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        return view('admin.posts.edit', ['post' => $post]);
     }
 
     /**
@@ -87,9 +87,21 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        $data = $request->all();
+        $data['user_id'] = Auth::user()->id;
+        $randomInt = rand(1, 100);
+        $data['slug'] = Str::slug($data['title'], "-") ."-". ($randomInt);
+
+        $post->user_id = $data['user_id'];
+        $post->title = $data['title'];
+        $post->content = $data['content'];
+        $post->image_url = $data['image_url'];
+        $post->slug = $data['slug'];
+        $post->save();
+
+        return redirect()->route('admin.posts.show', ['post' => $post]);
     }
 
     /**
