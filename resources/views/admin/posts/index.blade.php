@@ -9,7 +9,12 @@
                 {{ucfirst(Auth::user()['name'])}} Posts
             </h1>
             <div>
-                <a href="{{ route('admin.posts.create') }}">
+                {{-- <a href="{{ route('admin.posts.create') }}">
+                    <button class="btn btn-sm btn-primary">
+                        New Post
+                    </button>
+                </a> --}}
+                <a href="#" id='test'>
                     <button class="btn btn-sm btn-primary">
                         New Post
                     </button>
@@ -18,6 +23,10 @@
             @if (session('message'))
                 <div class="alert alert-success">
                     {{ session('message') }}
+                </div>
+            @elseif(session('remove-message'))
+                <div class="alert alert-danger">
+                    {{ session('remove-message') }}
                 </div>
             @endif
         </div>
@@ -65,9 +74,13 @@
                                 <a href="{{ route('admin.posts.edit', $post) }}">
                                     <button class="btn btn-sm btn-warning"> Edit </button>
                                 </a>
-                                <a href="">
-                                    <button class="btn btn-sm btn-danger"> Delete </button>
-                                </a>
+                                <form action="{{ route('admin.posts.destroy', $post) }}" class="are-you-sure" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    
+                                    <button type='submit' class="btn btn-sm btn-danger"> Delete </button>
+                                    
+                                </form>
                             </td>
                         </tr>
                     @endforeach
@@ -76,4 +89,25 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('content-scripts')
+    <script defer>
+        const cancellations = document.querySelectorAll(".are-you-sure");
+        console.log(cancellations);
+        cancellations.forEach(cancellation => {
+            cancellation.addEventListener( "submit", function(event){
+                event.preventDefault();
+                let confimation = window.confirm('Are you sure you want to remove this post?');
+                if(confimation){
+                    this.submit();
+                }
+            })
+        });
+
+        const test = document.getElementById('test');
+        test.addEventListener('click', function(){
+            promt('hello');
+        });
+    </script>
 @endsection

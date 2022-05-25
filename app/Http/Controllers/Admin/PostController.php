@@ -110,8 +110,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        //$post->user()->delete();
+        $post->delete();
+
+        return redirect()->route('admin.posts.index')->with('remove-message', 'Your post has been successfully removed');
     }
 }
