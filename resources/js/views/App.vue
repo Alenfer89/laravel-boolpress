@@ -7,15 +7,7 @@
                 </h1>
             </div>
             <section class="col-12">
-                <h1>
-                    some content
-                </h1>
-                <h1>
-                    some content
-                </h1>
-                <h1>
-                    some content
-                </h1>
+                <PostList />
             </section>
             <div class="col-6 mx-auto d-flex justify-content-between">
                 <a href="/admin">
@@ -29,9 +21,12 @@
 </template>
 
 <script>
+import PostList from '../components/PostList.vue'
 export default {
     name: 'App',
-    components: {},
+    components: {
+        PostList,
+    },
 }
 </script>
 
