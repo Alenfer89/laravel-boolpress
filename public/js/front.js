@@ -3261,9 +3261,7 @@ var render = function () {
           ),
         ]),
         _vm._v(" "),
-        _c("a", { staticClass: "btn btn-primary", attrs: { href: "" } }, [
-          _vm._v("Go somewhere"),
-        ]),
+        _c("a", { staticClass: "btn btn-primary" }, [_vm._v("Go somewhere")]),
       ]),
     ]),
   ])

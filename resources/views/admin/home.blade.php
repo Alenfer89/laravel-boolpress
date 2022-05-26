@@ -28,7 +28,9 @@
         </div>
         <section class="col-12">
             <h1>
-                CATEGORIES
+                <a href="{{ route('admin.categories.index') }}">
+                    CATEGORIES
+                </a>
             </h1>
         </section>
     </div>

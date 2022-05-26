@@ -12,7 +12,7 @@
                 <p class="card-text">
                     {{ post.content.substring(0, 100) + ".." }}
                 </p>
-                <a href="" class="btn btn-primary">Go somewhere</a>
+                <a class="btn btn-primary">Go somewhere</a>
             </div>
         </div>
     </div>
