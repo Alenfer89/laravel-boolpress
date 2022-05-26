@@ -30,5 +30,9 @@ Route::middleware('auth')
     Route::resource('posts', 'PostController');
 });
 
+//landing pages
 Route::get('/', 'HomeController@index')->name('guest.home');
 Route::get('/home', 'HomeController@index')->name('guest.home');
+
+//any-entry page
+Route::get('/{any}', 'HomeController@index')->where('any','.*');

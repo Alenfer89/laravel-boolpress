@@ -10,7 +10,11 @@
     <title>{{ config('app.name', 'Simil WordPress') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/admin.js') }}"></script>
+    <!-- controlla: admin o front ?-->
+    <!-- controlla -->
+    <!-- controlla -->
+    <!-- controlla -->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -23,9 +27,16 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
+                @guest
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Simil WordPress') }}
                 </a>
+                @else
+                <a class="navbar-brand" href="{{ route('admin.home') }}">
+                    {{ config('app.name', 'Simil WordPress') }}
+                </a>
+                @endguest
+                
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>

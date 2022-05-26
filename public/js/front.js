@@ -1916,6 +1916,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'App',
   components: {}
@@ -2413,7 +2435,37 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("h1", [_vm._v("\n        test\n    ")])])
+    return _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-12 mx-auto" }, [
+          _c("h1", [
+            _vm._v(
+              "\n                GUEST (NOT LOGGED) HOMEPAGE\n            "
+            ),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("section", { staticClass: "col-12" }, [
+          _c("h1", [_vm._v("\n                some content\n            ")]),
+          _vm._v(" "),
+          _c("h1", [_vm._v("\n                some content\n            ")]),
+          _vm._v(" "),
+          _c("h1", [_vm._v("\n                some content\n            ")]),
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-6 mx-auto d-flex justify-content-between" },
+          [
+            _c("a", { attrs: { href: "/admin" } }, [
+              _c("button", { staticClass: "btn btn-primary" }, [
+                _vm._v("\n                    back\n                "),
+              ]),
+            ]),
+          ]
+        ),
+      ]),
+    ])
   },
 ]
 render._withStripped = true
