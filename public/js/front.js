@@ -14634,7 +14634,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 var app = new Vue({
   el: '#root',
   render: function render(h) {
-    return _views_App_vue__WEBPACK_IMPORTED_MODULE_0__["default"];
+    return h(_views_App_vue__WEBPACK_IMPORTED_MODULE_0__["default"]);
   }
 });
 
