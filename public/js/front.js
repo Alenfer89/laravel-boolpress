@@ -1960,6 +1960,56 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1969,26 +2019,40 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      posts: []
+      posts: [],
+      pagination: {}
     };
   },
   methods: {
-    getPosts: function getPosts() {
+    getPosts: function getPosts(page) {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('http://127.0.0.1:8000/api/posts').then(function (result) {
-        //console.log(result.data);
-        //console.log(result.data.results);
-        //console.log(result.data.results.data);
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('http://127.0.0.1:8000/api/posts?page=' + page).then(function (result) {
+        console.log(result.data);
+        console.log(result.data.results);
+        console.log(result.data.results.data);
         _this.posts = result.data.results.data;
+        var _result$data$results = result.data.results,
+            current_page = _result$data$results.current_page,
+            last_page = _result$data$results.last_page;
+        console.log({
+          current_page: current_page,
+          last_page: last_page
+        });
+        _this.pagination = {
+          currentPage: current_page,
+          lastPage: last_page
+        };
         console.log(_this.posts);
+        console.log(_this.pagination);
+        console.log(_this.pagination.lastPage);
       })["catch"](function (error) {
         console.warn(error);
       });
     }
   },
   created: function created() {
-    this.getPosts();
+    this.getPosts(1);
   }
 });
 
@@ -3229,10 +3293,136 @@ var render = function () {
   return _c(
     "div",
     { staticClass: "row justify-content-between align-items-center" },
-    _vm._l(_vm.posts, function (post, index) {
-      return _c("Post", { key: index, attrs: { post: post } })
-    }),
-    1
+    [
+      _vm._l(_vm.posts, function (post, index) {
+        return _c("Post", { key: index, attrs: { post: post } })
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-12" }, [
+        _c("nav", { attrs: { "aria-label": "Page navigation" } }, [
+          _c("ul", { staticClass: "pagination" }, [
+            _vm.pagination.currentPage !== 1
+              ? _c(
+                  "li",
+                  {
+                    staticClass: "page-item",
+                    on: {
+                      click: function ($event) {
+                        return _vm.getPosts(1)
+                      },
+                    },
+                  },
+                  [
+                    _c("a", { staticClass: "page-link" }, [
+                      _vm._v(
+                        "\n                        First\n                    "
+                      ),
+                    ]),
+                  ]
+                )
+              : _c("li", { staticClass: "page-item disabled" }, [
+                  _c("a", { staticClass: "page-link" }, [
+                    _vm._v(
+                      "\n                        First\n                    "
+                    ),
+                  ]),
+                ]),
+            _vm._v(" "),
+            _vm.pagination.currentPage > 1
+              ? _c(
+                  "li",
+                  {
+                    staticClass: "page-item",
+                    on: {
+                      click: function ($event) {
+                        return _vm.getPosts(_vm.pagination.currentPage - 1)
+                      },
+                    },
+                  },
+                  [
+                    _c("a", { staticClass: "page-link" }, [
+                      _vm._v(
+                        "\n                        Previous\n                    "
+                      ),
+                    ]),
+                  ]
+                )
+              : _c("li", { staticClass: "page-item disabled" }, [
+                  _c("a", { staticClass: "page-link" }, [
+                    _vm._v(
+                      "\n                        Previous\n                    "
+                    ),
+                  ]),
+                ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "page-item" }, [
+              _c("a", { staticClass: "page-link" }, [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(_vm.pagination.currentPage) +
+                    "\n                    "
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _vm.pagination.currentPage < _vm.pagination.lastPage
+              ? _c(
+                  "li",
+                  {
+                    staticClass: "page-item",
+                    on: {
+                      click: function ($event) {
+                        return _vm.getPosts(_vm.pagination.currentPage + 1)
+                      },
+                    },
+                  },
+                  [
+                    _c("a", { staticClass: "page-link" }, [
+                      _vm._v(
+                        "\n                        Next\n                    "
+                      ),
+                    ]),
+                  ]
+                )
+              : _c("li", { staticClass: "page-item disabled" }, [
+                  _c("a", { staticClass: "page-link" }, [
+                    _vm._v(
+                      "\n                        Next\n                    "
+                    ),
+                  ]),
+                ]),
+            _vm._v(" "),
+            _vm.pagination.currentPage !== _vm.pagination.lastPage
+              ? _c(
+                  "li",
+                  {
+                    staticClass: "page-item",
+                    on: {
+                      click: function ($event) {
+                        return _vm.getPosts(_vm.pagination.lastPage)
+                      },
+                    },
+                  },
+                  [
+                    _c("a", { staticClass: "page-link" }, [
+                      _vm._v(
+                        "\n                        Last\n                    "
+                      ),
+                    ]),
+                  ]
+                )
+              : _c("li", { staticClass: "page-item disabled" }, [
+                  _c("a", { staticClass: "page-link" }, [
+                    _vm._v(
+                      "\n                        Last\n                    "
+                    ),
+                  ]),
+                ]),
+          ]),
+        ]),
+      ]),
+    ],
+    2
   )
 }
 var staticRenderFns = []
