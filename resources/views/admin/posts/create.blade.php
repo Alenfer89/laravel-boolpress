@@ -28,13 +28,16 @@
                 </div>
                 <div class="mb-3">
                     @foreach ($categories as $key => $category)
-                        <input type='checkbox' value="{{old('category[]') ?? $category->id }}" name='category[]'>
+                        <input type='checkbox' value="{{ $category->id }}" name='category[]'
+                        {{ isset(old("category")[$key]) == $category->id ? 'checked' : ''}}>
+                        {{-- {{ array_key_exists($category->id , old("category[]")) ?? 'checked' }}> --}}
+                        
                         <label for="title" class="form-label badge rounded-pill me-3" style='background-color: {{ $category->color }}'>
                             {{ $category->name }}
                         </label>
                     @endforeach
                     @dump(old('category'))
-                    @dump(old('category[]'))
+                    @dump(old("category[0]"))
                     @dump(old("category[$key]"))
                 </div>
                 <button class="btn btn-success" type="submit">Add your Post</button>

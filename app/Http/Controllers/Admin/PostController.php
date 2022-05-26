@@ -46,7 +46,7 @@ class PostController extends Controller
             [
                 'title' => 'required',
                 'content' => 'required|min:20',
-                'category' => 'required'
+                'category[]' => 'required'
             ],
             [
                 'required' => ':attribute is required',
@@ -66,11 +66,9 @@ class PostController extends Controller
         $newPost->image_url = $data['image_url'];
         $newPost->slug = $data['slug'];
         $newPost->save();
-        if (count($data['category']) == 0) {
-            $newPost->categories()->attach(0);
-        } else{
-            $newPost->categories()->attach($data['category']);
-        }
+        
+        $newPost->categories()->attach($data['category']);
+        
 
         return redirect()->route('admin.posts.index')->with('message', "$newPost->title post correctly");
 
@@ -134,7 +132,9 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //$post->user()->delete();
+        $deletedPost = $post;
         $post->delete();
+        $posts = Post::orderBy('id', 'desc')->paginate(10);
 
         return redirect()->route('admin.posts.index')->with('remove-message', 'Your post has been successfully removed');
     }
