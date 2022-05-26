@@ -11,13 +11,13 @@
         </div>
         <section class="col-12">
             <h1>
-                some news
+                some content
             </h1>
             <h1>
-                some news
+                some content
             </h1>
             <h1>
-                some news
+                some content
             </h1>
         </section>
         <div class="col-6 mx-auto d-flex justify-content-between">
@@ -26,16 +26,6 @@
                     back
                 </button> 
             </a>
-            <div>
-                <a class="nav-link" href="{{ route('login') }}">
-                    {{ __('Login') }}
-                </a>
-                @if (Route::has('register'))
-                    <a class="nav-link" href="{{ route('register') }}">
-                        {{ __('Register') }}
-                    </a>
-                @endif
-            </div>
         </div>
     </div>
 </div>
