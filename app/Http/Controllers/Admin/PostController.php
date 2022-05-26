@@ -107,6 +107,18 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        $request->validate(
+            [
+                'title' => 'required',
+                'content' => 'required|min:20',
+                'category' => 'required'
+            ],
+            [
+                'required' => ':attribute is required',
+                'min' => ':attribute should have at least :min characters'
+            ]
+        );
+
         $data = $request->all();
         $data['user_id'] = Auth::user()->id;
         $randomInt = rand(1, 100);
@@ -132,9 +144,9 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //$post->user()->delete();
-        $deletedPost = $post;
+        //$deletedPost = $post;
         $post->delete();
-        $posts = Post::orderBy('id', 'desc')->paginate(10);
+        //$posts = Post::orderBy('id', 'desc')->paginate(10);
 
         return redirect()->route('admin.posts.index')->with('remove-message', 'Your post has been successfully removed');
     }

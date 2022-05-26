@@ -27,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.create');
     }
 
     /**
@@ -38,29 +38,46 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate(
+            [
+                'name' => 'required',
+                'color' => 'required'
+            ],
+            [
+                'required' => ':attribute is required'
+            ]
+        );
+
+        $data = $request->all();
+
+        $newCategory = new Category();
+        $newCategory->name = $data['name'];
+        $newCategory->color = $data['color'];
+        $newCategory->save();
+        
+        return redirect()->route('admin.categories.index')->with('message', "$newCategory->name added correctly");
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Category $category
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Category $category)
     {
-        //
+        return view('admin.categories.show', compact('category'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  Category $category
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
-        //
+        return view('admin.categories.edit', compact('category'));
     }
 
     /**
@@ -70,9 +87,25 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $category)
     {
-        //
+        $request->validate(
+            [
+                'name' => 'required',
+                'color' => 'required'
+            ],
+            [
+                'required' => ':attribute is required'
+            ]
+        );
+
+        $data = $request->all();
+
+        $category->name = $data['name'];
+        $category->color = $data['color'];
+        $category->save();
+        
+        return redirect()->route('admin.categories.show', compact('category'))->with('message', "$category->name correctly modified");
     }
 
     /**
@@ -81,8 +114,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        //
+        $category->delete();
+
+        return redirect()->route('admin.categories.index')->with('remove-message', "Category $category->name has been successfully removed");
     }
 }

@@ -24,14 +24,6 @@
                     </span>
                         {{ session('remove-message') }}
                     <span>
-                    {{-- <form action="{{ route('admin.posts.store') }}" method='POST'>
-                        @csrf
-                        @method('POST')
-                        <input type="text" value='{{$deletedPost}}' name='post' class='d-none'>
-                        <button class="btn btn-danger btn-sm" type='submit'>
-                            Annulla
-                        </button>
-                    </form> --}}
                 </div>
             @endif
         </div>
