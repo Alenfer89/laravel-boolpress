@@ -32,7 +32,7 @@
                     {{ config('app.name', 'Simil WordPress') }}
                 </a>
                 @else
-                <a class="navbar-brand" href="{{ route('admin.home') }}">
+                <a class="navbar-brand" href="{{ url('/admin') }}">
                     {{ config('app.name', 'Simil WordPress') }}
                 </a>
                 @endguest
@@ -68,6 +68,15 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.posts.index') }}">Posts</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Categories</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Users</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
