@@ -2234,6 +2234,62 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3965,11 +4021,137 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container-fluid p-5" }, [
+  return _c("div", { staticClass: "container-fluid px-5" }, [
     _c(
       "div",
       { staticClass: "row justify-content-between align-items-center p-5" },
       [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-12" }, [
+          _c("nav", { attrs: { "aria-label": "Page navigation" } }, [
+            _c("ul", { staticClass: "pagination" }, [
+              _vm.pagination.currentPage !== 1
+                ? _c(
+                    "li",
+                    {
+                      staticClass: "page-item",
+                      on: {
+                        click: function ($event) {
+                          return _vm.getPosts(1)
+                        },
+                      },
+                    },
+                    [
+                      _c("a", { staticClass: "page-link" }, [
+                        _vm._v(
+                          "\n                            First\n                        "
+                        ),
+                      ]),
+                    ]
+                  )
+                : _c("li", { staticClass: "page-item disabled" }, [
+                    _c("a", { staticClass: "page-link" }, [
+                      _vm._v(
+                        "\n                            First\n                        "
+                      ),
+                    ]),
+                  ]),
+              _vm._v(" "),
+              _vm.pagination.currentPage > 1
+                ? _c(
+                    "li",
+                    {
+                      staticClass: "page-item",
+                      on: {
+                        click: function ($event) {
+                          return _vm.getPosts(_vm.pagination.currentPage - 1)
+                        },
+                      },
+                    },
+                    [
+                      _c("a", { staticClass: "page-link" }, [
+                        _vm._v(
+                          "\n                            Previous\n                        "
+                        ),
+                      ]),
+                    ]
+                  )
+                : _c("li", { staticClass: "page-item disabled" }, [
+                    _c("a", { staticClass: "page-link" }, [
+                      _vm._v(
+                        "\n                            Previous\n                        "
+                      ),
+                    ]),
+                  ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "page-item" }, [
+                _c("a", { staticClass: "page-link" }, [
+                  _vm._v(
+                    "\n                            " +
+                      _vm._s(_vm.pagination.currentPage) +
+                      "\n                        "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
+              _vm.pagination.currentPage < _vm.pagination.lastPage
+                ? _c(
+                    "li",
+                    {
+                      staticClass: "page-item",
+                      on: {
+                        click: function ($event) {
+                          return _vm.getPosts(_vm.pagination.currentPage + 1)
+                        },
+                      },
+                    },
+                    [
+                      _c("a", { staticClass: "page-link" }, [
+                        _vm._v(
+                          "\n                            Next\n                        "
+                        ),
+                      ]),
+                    ]
+                  )
+                : _c("li", { staticClass: "page-item disabled" }, [
+                    _c("a", { staticClass: "page-link" }, [
+                      _vm._v(
+                        "\n                            Next\n                        "
+                      ),
+                    ]),
+                  ]),
+              _vm._v(" "),
+              _vm.pagination.currentPage !== _vm.pagination.lastPage
+                ? _c(
+                    "li",
+                    {
+                      staticClass: "page-item",
+                      on: {
+                        click: function ($event) {
+                          return _vm.getPosts(_vm.pagination.lastPage)
+                        },
+                      },
+                    },
+                    [
+                      _c("a", { staticClass: "page-link" }, [
+                        _vm._v(
+                          "\n                            Last\n                        "
+                        ),
+                      ]),
+                    ]
+                  )
+                : _c("li", { staticClass: "page-item disabled" }, [
+                    _c("a", { staticClass: "page-link" }, [
+                      _vm._v(
+                        "\n                            Last\n                        "
+                      ),
+                    ]),
+                  ]),
+            ]),
+          ]),
+        ]),
+        _vm._v(" "),
         _vm._l(_vm.posts, function (post, index) {
           return _c("Post", { key: index, attrs: { post: post } })
         }),
@@ -4102,7 +4284,18 @@ var render = function () {
     ),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12 pb-5" }, [
+      _c("h1", { staticClass: "pb-5" }, [
+        _vm._v("\n                Some Awesome Posts\n            "),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 

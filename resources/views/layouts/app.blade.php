@@ -106,10 +106,10 @@
         </nav>
         @endauth
 
-        <main class="py-4">
+        <div>
             @yield('content')
             @yield('content-scripts')
-        </main>
+        </div>
     </div>
 </body>
 </html>
