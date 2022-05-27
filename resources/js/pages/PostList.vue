@@ -62,7 +62,7 @@
 
 <script>
 import Axios from 'axios';
-import Post from './Post.vue';
+import Post from '../components/Post.vue';
 export default {
     name: "PostList",
     components: { 

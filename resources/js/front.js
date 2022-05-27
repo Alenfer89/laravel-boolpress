@@ -14,7 +14,29 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+import Vue from 'vue';
+import VueRouter from 'vue-router';
 
+Vue.use(VueRouter);
+
+import Home from './pages/Home.vue';
+import PostList from './pages/PostList.vue';
+
+const router = new VueRouter({
+    mode: 'history',
+    routes: [
+        {
+            path: '/',
+            name: 'home',
+            component: Home
+        },
+        {
+            path: '/posts',
+            name: 'posts',
+            component: PostList
+        }
+    ]
+});
 
 import App from './views/App.vue';
 /**
@@ -25,5 +47,6 @@ import App from './views/App.vue';
 
 const app = new Vue({
     el: '#root',
+    router,
     render: h => h(App)
 });
