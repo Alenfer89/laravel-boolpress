@@ -1,68 +1,73 @@
 <template>
-    <div class="row justify-content-between align-items-center">
 
-        <Post 
-        v-for="(post, index) in posts"
-        :key="index"
-        :post='post'
-        />
-        <div class="col-12">
-            <nav aria-label="Page navigation">
-                <ul class="pagination">
-                    <li class="page-item" v-if="pagination.currentPage !== 1" @click="getPosts(1)">
-                        <a class="page-link">
-                            First
-                        </a>
-                    </li>
-                    <li class="page-item disabled" v-else>
-                        <a class="page-link">
-                            First
-                        </a>
-                    </li>
-                    <li class="page-item" v-if="pagination.currentPage > 1" @click="getPosts(pagination.currentPage - 1)">
-                        <a class="page-link">
-                            Previous
-                        </a>
-                    </li>
-                    <li class="page-item disabled" v-else>
-                        <a class="page-link">
-                            Previous
-                        </a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link">
-                            {{ pagination.currentPage }}
-                        </a>
-                    </li>
-                    <li class="page-item" v-if="pagination.currentPage < pagination.lastPage" @click="getPosts(pagination.currentPage + 1)">
-                        <a class="page-link">
-                            Next
-                        </a>
-                    </li>
-                    <li class="page-item disabled" v-else>
-                        <a class="page-link">
-                            Next
-                        </a>
-                    </li>
-                    <li class="page-item" v-if="pagination.currentPage !== pagination.lastPage" @click="getPosts(pagination.lastPage)">
-                        <a class="page-link">
-                            Last
-                        </a>
-                    </li>
-                    <li class="page-item disabled" v-else>
-                        <a class="page-link">
-                            Last
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+    <div class="container-fluid p-5">
+        <div class="row justify-content-between align-items-center p-5">
+
+            <Post 
+            v-for="(post, index) in posts"
+            :key="index"
+            :post='post'
+            />
+
+            <div class="col-12">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li class="page-item" v-if="pagination.currentPage !== 1" @click="getPosts(1)">
+                            <a class="page-link">
+                                First
+                            </a>
+                        </li>
+                        <li class="page-item disabled" v-else>
+                            <a class="page-link">
+                                First
+                            </a>
+                        </li>
+                        <li class="page-item" v-if="pagination.currentPage > 1" @click="getPosts(pagination.currentPage - 1)">
+                            <a class="page-link">
+                                Previous
+                            </a>
+                        </li>
+                        <li class="page-item disabled" v-else>
+                            <a class="page-link">
+                                Previous
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link">
+                                {{ pagination.currentPage }}
+                            </a>
+                        </li>
+                        <li class="page-item" v-if="pagination.currentPage < pagination.lastPage" @click="getPosts(pagination.currentPage + 1)">
+                            <a class="page-link">
+                                Next
+                            </a>
+                        </li>
+                        <li class="page-item disabled" v-else>
+                            <a class="page-link">
+                                Next
+                            </a>
+                        </li>
+                        <li class="page-item" v-if="pagination.currentPage !== pagination.lastPage" @click="getPosts(pagination.lastPage)">
+                            <a class="page-link">
+                                Last
+                            </a>
+                        </li>
+                        <li class="page-item disabled" v-else>
+                            <a class="page-link">
+                                Last
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </div>
+
 </template>
 
 <script>
 import Axios from 'axios';
-import Post from '../components/Post.vue';
+import Post from './Post.vue';
 export default {
     name: "PostList",
     components: { 
