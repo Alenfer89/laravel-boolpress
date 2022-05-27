@@ -43,14 +43,14 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //! qua ci vuole (Post $post) come arcomento
+        //! qua ci vuole (Post $post) come argomento
         // return response()->json(
         //     [
         //         'success' => true,
         //         'results' => $post
         //     ]
         // );
-        //! qua ci vuole ($id) come arcomento
+        //! qua ci vuole ($id) come argomento
         $posts = Post::with(['user', 'categories'])->findOrFail($id);
         return response()->json(
             [
