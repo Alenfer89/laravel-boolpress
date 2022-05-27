@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::paginate(9);
+        $posts = Post::with(['user', 'categories'])->paginate(9);
         return response()->json(
             [
                 'success' => true,

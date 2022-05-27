@@ -3248,7 +3248,7 @@ var render = function () {
         _c("p", { staticClass: "class-subtitle" }, [
           _vm._v(
             "\n                by: " +
-              _vm._s(_vm.post.user_id) +
+              _vm._s(_vm.post.user.name) +
               "\n            "
           ),
         ]),

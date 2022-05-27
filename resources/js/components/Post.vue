@@ -7,7 +7,7 @@
                     {{ post.title }}
                 </h5>
                 <p class="class-subtitle">
-                    by: {{ post.user_id }}
+                    by: {{ post.user.name }}
                 </p>
                 <p class="card-text">
                     {{ post.content.substring(0, 100) + ".." }}
