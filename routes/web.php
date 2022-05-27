@@ -36,4 +36,4 @@ Route::get('/', 'HomeController@index')->name('guest.home');
 Route::get('/home', 'HomeController@index')->name('guest.home');
 
 //any-entry page
-Route::get('/{any}', 'HomeController@index')->where('any','.*');
+//Route::get('/{any}', 'HomeController@index')->where('any','.*');
