@@ -24,7 +24,14 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
+    {{-- <div id="app"> --}}
+    
+    {{-- da implementare una roba tipo: @if(auth::user->roles->qualcosa) --}}
+    {{-- per ora nascondo con un auth semplice --}}
+    @auth
+        
+    
+    <div>
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 @guest
@@ -97,6 +104,7 @@
                 </div>
             </div>
         </nav>
+        @endauth
 
         <main class="py-4">
             @yield('content')

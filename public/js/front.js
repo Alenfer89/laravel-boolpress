@@ -1950,7 +1950,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _pages_PostList_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../pages/PostList.vue */ "./resources/js/pages/PostList.vue");
 //
 //
 //
@@ -1958,29 +1957,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'main',
-  components: {
-    PostList: _pages_PostList_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
-  }
+  components: {}
 });
 
 /***/ }),
@@ -2031,6 +2010,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3392,44 +3385,9 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("section", { staticClass: "col-12" }, [_c("PostList")], 1),
-      _vm._v(" "),
-      _vm._m(1),
-    ]),
-  ])
+  return _c("div", [_c("router-view")], 1)
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 mx-auto" }, [
-      _c("h1", [
-        _vm._v("\n                GUEST (NOT LOGGED) HOMEPAGE\n            "),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-6 mx-auto d-flex justify-content-between" },
-      [
-        _c("a", { attrs: { href: "/admin" } }, [
-          _c("button", { staticClass: "btn btn-primary" }, [
-            _vm._v("\n                    back\n                "),
-          ]),
-        ]),
-      ]
-    )
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -3518,7 +3476,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("h1", [_vm._v("\n        homepage\n    ")])])
+    return _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-12 mx-auto" }, [
+          _c("h1", [
+            _vm._v(
+              "\n                GUEST (NOT LOGGED) HOMEPAGE\n            "
+            ),
+          ]),
+        ]),
+      ]),
+    ])
   },
 ]
 render._withStripped = true
