@@ -2,6 +2,7 @@
 
 
 @section('content')
+
 <div class="container">
     <div class="row mb-5">
         <div class="col-12 text-center mb-3">
@@ -59,6 +60,23 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="row">
+        @foreach ($post->comments as $singleComment)
+            <div class="col-4">
+                <p>
+                    {{ $singleComment->message }}
+                </p>
+                <div class="d-flex justify-content-between">
+                    <span>
+                        {{ $singleComment->created_at }}
+                    </span>
+                    <span>
+                        {{ $singleComment->user->name }}
+                    </span>
+                </div>
+            </div>
+        @endforeach
     </div>
     <div class="row">
         <div class="col-6 mx-auto p-5">

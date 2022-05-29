@@ -47,6 +47,7 @@
                         <th scope="col">Category</th>
                         <th scope="col">Author</th>
                         <th scope="col">Date</th>
+                        <th scope="col">Comments</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -78,6 +79,11 @@
                             </td>
                             <td>
                                 {{ $post->created_at }}
+                            </td>
+                            <td>
+                                <div class="text-center">
+                                    {{ count($post->comments) }}
+                                </div>
                             </td>
                             <td class="d-flex">
                                 <a href="{{ route('admin.posts.edit', $post) }}" class="me-3">
