@@ -7,8 +7,17 @@
     <div class="row">
         <div class="col-12 text-center">
             <h1>
-                <h1>{{ucfirst(Auth::user()['name'])}} Post</h1>
+                Ciao {{ucfirst(Auth::user()['name'])}}
             </h1>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         </div>
         <div class="col-12">
             <form action="{{ route('admin.posts.store') }}" method="POST">
@@ -32,14 +41,14 @@
                         {{ old("category") && in_array($category->id , old("category")) ? 'checked' : ''}}>
                         {{-- {{ array_key_exists($category->id , old("category[]")) ?? 'checked' }}> --}}
                         
-                        <label for="title" class="form-label badge rounded-pill me-3" style='background-color: {{ $category->color }}'>
+                        <label for="category" class="form-label badge rounded-pill me-3" style='background-color: {{ $category->color }}'>
                             {{ $category->name }}
                         </label>
                     @endforeach
-                    @dump(old('category'))
+                    {{-- @dump(old('category'))
                     @if(old("category"))
                     @dump(old("category")[0])
-                    @endif
+                    @endif --}}
                 </div>
                 <button class="btn btn-success" type="submit">Add your Post</button>
             </form>

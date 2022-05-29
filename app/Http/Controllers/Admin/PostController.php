@@ -18,9 +18,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('id', 'desc')->paginate(10);
+        $posts = Post::orderBy('id', 'desc')->paginate(20);
+        $totalPosts = count(Post::pluck('id')->toArray());
 
-        return view('admin.posts.index' , ['posts'=> $posts]);
+        return view('admin.posts.index' , ['posts'=> $posts, 'totalPosts' => $totalPosts]);
     }
 
     /**
@@ -46,7 +47,7 @@ class PostController extends Controller
             [
                 'title' => 'required',
                 'content' => 'required|min:20',
-                'category[]' => 'required'
+                'category' => 'required'
             ],
             [
                 'required' => ':attribute is required',

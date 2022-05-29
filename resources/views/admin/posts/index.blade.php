@@ -6,8 +6,11 @@
     <div class="row">
         <div class="col-12 text-center mb-3">
             <h1>
-                {{ucfirst(Auth::user()['name'])}} Posts
+                Ciao {{ucfirst(Auth::user()['name'])}}
             </h1>
+            <h6 class="mb-3">
+                There are {{ $totalPosts }} posts to monitor
+            </h6>
             <div>
                 <a href="{{ route('admin.posts.create') }}">
                     <button class="btn btn-sm btn-primary">
@@ -92,6 +95,9 @@
                     @endforeach
                 </tbody>
             </table>
+        </div>
+        <div class="col-12">
+            {{ $posts->links() }}
         </div>
     </div>
 </div>
