@@ -51,8 +51,9 @@
                 <div class="mb-3 d-flex justify-content-center align-items-center">
                     <label for="category" class="form-label me-5 align-self-start">Category:</label>
                     @foreach ($categories as $category)
-                        <input name="category[]" id="category" type='checkbox' value="{{ $category->id }}" 
-                        @if($post->categories->contains($category)) checked @endif>
+                        <input name="category[]" id="category" type='checkbox' value="{{ $category->id }}"
+                        {{ (old("category") && in_array($category->id , old("category"))) || (!old("category") && $post->categories->contains($category)) ? 'checked' : ''}}> 
+                        {{-- @if($post->categories->contains($category)) checked @endif> --}}
                         {{-- @checked(old('category', $category->id))> --}}
                         <span class="badge rounded-pill ms-1 me-3" style='font-size: .5rem; background-color: {{ $category->color }}'>
                             {{ ucfirst($category->name) }}
