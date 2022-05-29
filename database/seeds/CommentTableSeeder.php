@@ -24,7 +24,7 @@ class CommentTableSeeder extends Seeder
 
                 $comment->post_id = $post->id;
                 $comment->user_id = $faker->randomElement($user_ids);
-                $comment->message = $faker->words(rand(3, 50), true);
+                $comment->message = $faker->words(rand(3, 20), true);
 
                 $comment->save();
             }
