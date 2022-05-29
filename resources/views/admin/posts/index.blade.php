@@ -24,9 +24,9 @@
                 </div>
             @elseif(session('remove-message'))
                 <div class="alert alert-danger d-flex justify-content-between">
-                    </span>
-                        {{ session('remove-message') }}
                     <span>
+                        {{ session('remove-message') }}
+                    </span>
                     {{-- <form action="{{ route('admin.posts.store') }}" method='POST'>
                         @csrf
                         @method('POST')

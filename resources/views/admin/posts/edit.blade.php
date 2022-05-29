@@ -26,7 +26,9 @@
             @method('PUT')
 
                 <div class="mb-3">
-                    <label for="title" class="form-label">Post Title</label>
+                    <label for="title" class="form-label">
+                        Post Title
+                    </label>
                     <input class="form-control" type="text" id="title" name='title' value="{{ old('title') ?? $post->title }}">
                     @error('title')
                         <div class="alert alert-danger">
@@ -35,13 +37,16 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="image_url" class="form-label">Image URL</label>
+                    <label for="image_url" class="form-label">
+                        Image URL
+                    </label>
                     <input class="form-control" type="text" id="image_url" name='image_url' value="{{ old('image_url') ?? $post->image_url }}">
                 </div>
                 <div class="mb-3">
-                    <label for="content" class="form-label">Post Text</label>
-                    <textarea class="form-control" id="content" name='content' rows="3">{{ old('content') ?? $post->content }}
-                    </textarea>
+                    <label for="content" class="form-label">
+                        Post Text
+                    </label>
+                    <textarea class="form-control" id="content" name='content' rows="3">{{ old('content') ?? $post->content }}</textarea>
                     @error('content')
                         <div class="alert alert-danger">
                             {{ $message }}
@@ -49,7 +54,9 @@
                     @enderror
                 </div>
                 <div class="mb-3 d-flex justify-content-center align-items-center">
-                    <label for="category" class="form-label me-5 align-self-start">Category:</label>
+                    <label for="category" class="form-label me-5 align-self-start">
+                        Category:
+                    </label>
                     @foreach ($categories as $category)
                         <input name="category[]" id="category" type='checkbox' value="{{ $category->id }}"
                         {{ (old("category") && in_array($category->id , old("category"))) || (!old("category") && $post->categories->contains($category)) ? 'checked' : ''}}> 
@@ -65,7 +72,9 @@
                         {{ $message }}
                     </div>
                 @enderror
-                <button class="btn btn-success" type="submit">Edit your Post</button>
+                <button class="btn btn-success" type="submit">
+                    Edit this Post
+                </button>
             </form>
         </div>
         
