@@ -20,7 +20,7 @@
         </div>
         <div class="col-6 mx-auto">
             <div class="card">
-                <img src="{{ $post->image_url }}" class="card-img-top" alt="{{ $post->title }} image by {{ $post->author }}">
+                <img src="{{ (str_starts_with($post->image_url, 'http')) ? $post->image_url : asset('/storage').'/'.$post->image_url }}" class="card-img-top" alt="{{ $post->title }} image by {{ $post->author }}">
                 <div class="card-body">
                     <h5 class="card-title">
                         {{ $post->title }}

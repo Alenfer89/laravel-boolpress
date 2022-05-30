@@ -31,7 +31,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="image" class="form-label">
-                        Image URL
+                        Image
                     </label>
                     <input class="form-control" type="file" id="image" name='image' placeholder="Copy and paste your image url, if any" value="{{ old('image') }}">
                 </div>
