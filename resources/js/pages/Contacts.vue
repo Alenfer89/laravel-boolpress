@@ -5,7 +5,11 @@
         </h1>
         <div>
             <ul>
-                <li>Name</li>
+                <li>
+                    <a href="/contacts">
+                    send us and email
+                    </a>
+                </li>
                 <li>Name</li>
                 <li>Name</li>
                 <li>Name</li>

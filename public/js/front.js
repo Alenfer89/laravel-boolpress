@@ -2076,6 +2076,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -3881,7 +3885,11 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("div", [
         _c("ul", [
-          _c("li", [_vm._v("Name")]),
+          _c("li", [
+            _c("a", { attrs: { href: "/contacts" } }, [
+              _vm._v("\n                send us and email\n                "),
+            ]),
+          ]),
           _vm._v(" "),
           _c("li", [_vm._v("Name")]),
           _vm._v(" "),

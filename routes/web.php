@@ -35,7 +35,10 @@ Route::middleware('auth')
 
 //landing pages
 Route::get('/', 'HomeController@index')->name('guest.home');
-Route::get('/home', 'HomeController@index')->name('guest.home');
+//Route::get('/home', 'HomeController@index')->name('guest.home');
+Route::get('/contacts', 'HomeController@contact')->name('guest.contact');
+Route::post('/contacts', 'HomeController@emailSender')->name('guest.sender');
+Route::get('/contactsthx', 'HomeController@thanks')->name('guest.thanks');
 
 //any-entry page
 Route::get('/{any}', 'HomeController@index')->where('any','.*');
