@@ -37,8 +37,13 @@
                     </p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        {{ $postDay . ' ' . $postTime }}
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>
+                            {{ $postDay }}
+                        </span>
+                        <span>
+                            {{ $postTime }}
+                        </span>
                     </li>
                     <li class="list-group-item">
                         {{ $post->updated_at }}

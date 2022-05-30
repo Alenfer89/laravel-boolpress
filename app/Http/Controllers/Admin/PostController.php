@@ -86,7 +86,7 @@ class PostController extends Controller
     public function show(Post $post)
     {
         $totalPosts = count(Post::pluck('id')->toArray());
-        $postDay = Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->format('d-m-Y');
+        $postDay = Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->locale('en')->isoFormat('dddd, Do MMMM YYYY');
         $postTime = Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->format('H:i');
         return view('admin.posts.show', ['post' => $post , 'totalPosts' => $totalPosts, 'postDay' => $postDay, 'postTime' => $postTime]);
     }
