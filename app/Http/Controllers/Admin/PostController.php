@@ -9,6 +9,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class PostController extends Controller
 {
@@ -85,7 +86,9 @@ class PostController extends Controller
     public function show(Post $post)
     {
         $totalPosts = count(Post::pluck('id')->toArray());
-        return view('admin.posts.show', ['post' => $post , 'totalPosts' => $totalPosts]);
+        $postDay = Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->format('d-m-Y');
+        $postTime = Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->format('H:i');
+        return view('admin.posts.show', ['post' => $post , 'totalPosts' => $totalPosts, 'postDay' => $postDay, 'postTime' => $postTime]);
     }
 
     /**

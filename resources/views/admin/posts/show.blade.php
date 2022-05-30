@@ -38,7 +38,7 @@
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        {{ $post->created_at }}
+                        {{ $postDay . ' ' . $postTime }}
                     </li>
                     <li class="list-group-item">
                         {{ $post->updated_at }}
