@@ -78,7 +78,7 @@
                                 {{ $post->user->userInfo->first_name }} - {{ $post->user->userInfo->last_name }}
                             </td>
                             <td>
-                                {{ $post->created_at }}
+                                {{ $post->funnyDate }}
                             </td>
                             <td>
                                 <div class="text-center">

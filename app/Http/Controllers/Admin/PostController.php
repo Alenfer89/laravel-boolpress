@@ -21,10 +21,11 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::orderBy('id', 'desc')->paginate(20);
-        // foreach ($posts as $post) {
-        //     $funnyDate = Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->locale('en')->isoFormat('dddd, Do MMMM YYYY');
-        //     $post->created_at = $funnyDate;
-        // }
+        foreach ($posts as $post) {
+            $post->funnyDate = null;
+            $funnyDate = Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->locale('en')->isoFormat('dddd, Do MMMM YYYY');
+            $post->funnyDate = $funnyDate;
+        }
         $totalPosts = count(Post::pluck('id')->toArray());
 
         return view('admin.posts.index' , ['posts'=> $posts, 'totalPosts' => $totalPosts]);
