@@ -20,7 +20,7 @@
             @endif
         </div>
         <div class="col-12">
-            <form action="{{ route('admin.posts.store') }}" method="POST">
+            <form action="{{ route('admin.posts.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('POST')
                 <div class="mb-3">
@@ -30,10 +30,10 @@
                     <input class="form-control" type="text" id="title" name='title' placeholder="Insert your post title here" value="{{ old('title') }}">
                 </div>
                 <div class="mb-3">
-                    <label for="image_url" class="form-label">
+                    <label for="image" class="form-label">
                         Image URL
                     </label>
-                    <input class="form-control" type="text" id="image_url" name='image_url' placeholder="Copy and paste your image url, if any" value="{{ old('image_url') }}">
+                    <input class="form-control" type="file" id="image" name='image' placeholder="Copy and paste your image url, if any" value="{{ old('image') }}">
                 </div>
                 <div class="mb-3">
                     <label for="content" class="form-label">

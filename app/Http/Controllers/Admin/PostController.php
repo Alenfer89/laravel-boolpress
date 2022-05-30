@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -71,7 +72,7 @@ class PostController extends Controller
         $newPost->user_id = $data['user_id'];
         $newPost->title = $data['title'];
         $newPost->content = $data['content'];
-        $newPost->image_url = $data['image_url'];
+        $newPost->image_url = Storage::put('uploads', $data['image']);
         $newPost->slug = $data['slug'];
         $newPost->save();
         
