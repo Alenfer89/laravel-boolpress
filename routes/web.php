@@ -38,7 +38,7 @@ Route::get('/', 'HomeController@index')->name('guest.home');
 //Route::get('/home', 'HomeController@index')->name('guest.home');
 Route::get('/contacts', 'HomeController@contact')->name('guest.contact');
 Route::post('/contacts', 'HomeController@emailSender')->name('guest.sender');
-Route::get('/contactsthx', 'HomeController@thanks')->name('guest.thanks');
+Route::get('/contactsthx', 'HomeController@thanks')->name('guest.thanks'); //# cambia ovviamente la get o essendo l'ultima sovrascrive la precedente
 
 //any-entry page
 Route::get('/{any}', 'HomeController@index')->where('any','.*');

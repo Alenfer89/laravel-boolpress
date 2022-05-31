@@ -34,5 +34,6 @@ class SendNewMail extends Mailable
     public function build()
     {
         return $this->replyTo($this->authorEmail)->view('emails.body', ["author" => $this->author, "email" => $this->authorEmail, "messageContent" => $this->messageContent]);
+        //se passo "message" iso "messageContent" si incavola perché sovrascrivo quelche funzionalità (?)base(?) e lo vede come object
     }
 }
